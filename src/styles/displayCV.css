@@ -1,0 +1,13 @@
+@import url('../index.css');
+
+#cv-header-container{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: var(--highlight-color);
+    text-align: center;
+}
+#cv-header-contact-container{
+    display: flex;
+    justify-content: space-evenly;
+}
