@@ -7,7 +7,6 @@ function App() {
   const [personalInfo, setPersonalInfo] = useState(data.personalInfo);
 
   function handleInputChange(event){
-    // Destructuring > we get const name & const value from the event target
     const {name, value} = event.target;
 
     setPersonalInfo((prev) => {
