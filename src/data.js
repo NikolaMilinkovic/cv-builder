@@ -13,8 +13,8 @@ const data =
     school: "Private School for bird watching",
     degree: "Certification for professional bird watching - CPBW",
     location: "Wonderland Street 56, Rainbow City, Sky",
-    startDate: "",
-    endDate: "",
+    startDate: "01/01/2024",
+    endDate: "01/01/2024",
     show: false,
   },
   {
@@ -22,10 +22,22 @@ const data =
     school: "School of spacecraft flying",
     degree: "Certification for professional spacecraft pilot",
     location: "Some random state",
-    startDate: "",
-    endDate: "",
+    startDate: "01/01/2024",
+    endDate: "01/01/2024",
     show: false,
   }
+  ],
+  experienceInfo: [
+    {
+      id: uuid(),
+      company: "The Rat Chasers",
+      position: "Lead rat chaser",
+      startDate: "01/01/2024",
+      endDate: "01/01/2024",
+      location: "In the sewers",
+      description: "Chased them rats all day, good barbecue.. o.o",
+      show: false,
+    }
   ]
 }
 

@@ -1,33 +1,21 @@
-// - School
-// - Degree
-// - Start Date > Date picker
-// - End Date > Date picker
-// - Location
 import { useState } from "react"
 import "../styles/displayCV.css"
 import "../styles/education.css"
 import InputGroup from "../input_group"
 import InputDateGroup from "../input_group_date"
 import "react-datepicker/dist/react-datepicker.css";
+import { v4 as uuid } from "uuid";
 
 function Education({educationInfo, onChange, onDateChange, degreeShowToggle, removeDegree, addNewDegree, clearDegree}) {
-  const [show, setShow] = useState(true);
-  // const {school, degree, location, startDate, endDate} = educationInfo;
-  // const [startSchoolDate, setStartSchoolDate] = useState(new Date());
+  const [showEducation, setShowEducation] = useState(false);
   function toggleShow(){
-    show === true ? setShow(false) : setShow(true);
-    {console.log(show)}
+    showEducation === true ? setShowEducation(false) : setShowEducation(true);
   }
   function Button({onClick}){
-    return <button id="input-img" onClick={onClick}><h1>Education</h1></button>
+    return <button className="section-btn" onClick={onClick}><h1>Education</h1></button>
   }
   function ButtonNormal({btnText="", onClick, id="", className=""}){
     return <button id={id} onClick={onClick} className={className}>{btnText}</button>
-  }
-
-
-  function DegreeClearButton(){
-
   }
 
   return (
@@ -36,18 +24,19 @@ function Education({educationInfo, onChange, onDateChange, degreeShowToggle, rem
         onClick={toggleShow}
       />
 
-      {show === true && (
-        <>
+      {showEducation === true && (
+        <div className="btn-flex">
           {educationInfo.map(obj => (
             <>
               <ButtonNormal
                 btnText={obj.school}
                 onClick={() => {degreeShowToggle(obj.id)}}
-                className="btn-degree-show-toggle"
+                className={`btn-degree-show-toggle ${obj.show ? "btn-active" : ""}`}
               />
               <div 
                 key={obj.id} 
                 id={obj.id} 
+                className="education-input-section-display"
               >
 
 
@@ -125,6 +114,7 @@ function Education({educationInfo, onChange, onDateChange, degreeShowToggle, rem
                       <ButtonNormal
                         btnText="Remove"
                         onClick={() => {removeDegree(obj.id)}}
+                        className="remove-btn"
                       />
                     </div>
                   </>
@@ -132,14 +122,13 @@ function Education({educationInfo, onChange, onDateChange, degreeShowToggle, rem
               </div>
             </>
           ))}
-        </>
-    
+          <ButtonNormal
+            btnText="Add new Degree"
+            onClick={addNewDegree}
+            className="add-new-btn"
+          />
+        </div>
       )}
-
-      <ButtonNormal
-        btnText="Add new Degree"
-        onClick={addNewDegree}
-      />
     </form>
   )
 }

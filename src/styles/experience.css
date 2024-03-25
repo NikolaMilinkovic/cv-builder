@@ -1,0 +1,10 @@
+@import url("../index.css");
+
+#experience-container{
+    display: flex;
+    flex-direction: column;
+}
+#experience-container div:not(:first-child){
+    display: flex;
+    flex-direction: column;
+}

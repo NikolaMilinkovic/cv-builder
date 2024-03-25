@@ -4,8 +4,8 @@ import "react-datepicker/dist/react-datepicker.css";
 // Method for creating Label+DateInput Field
 function InputDateGroup({htmlFor, labelText, selectedDate, name, id, ariaLabel, onChange, parentId}){
   return (
-    <>
-      <label htmlFor={htmlFor}>{labelText}</label>
+    <div className="date-picker-container">
+      <label htmlFor={htmlFor}>{labelText}:</label>
       <DatePicker 
         id={id}
         name={name}
@@ -13,7 +13,7 @@ function InputDateGroup({htmlFor, labelText, selectedDate, name, id, ariaLabel, 
         selected={selectedDate} 
         onChange={(date) => onChange(name, date, parentId)} 
       />
-    </>
+    </div>
   )
 }
   

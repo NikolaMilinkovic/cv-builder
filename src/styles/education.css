@@ -17,7 +17,7 @@
 }
 .degree-show-hide-btn{
     font-size: 10px;
-    color: white;
+    color: var(--font-color)
 }
 .btn-degree-show-toggle{
     font-size: 18px;

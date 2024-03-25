@@ -1,6 +1,8 @@
 import { useState } from "react"
 import PersonalDetails from "./components/personal_details.jsx"
 import Education from "./components/education.jsx"
+import Experience from "./components/experience.jsx"
+import Layout from "./components/layout.jsx"
 import DisplayCV from "./components/displayCV.jsx"
 import ContentControls from "./components/input_layout_selectors.jsx"
 import data from "./data.js"
@@ -11,6 +13,7 @@ function App() {
   const [displayOption, setDisplayOption] = useState("input") // Can be input / layout
   const [personalInfo, setPersonalInfo] = useState(data.personalInfo);
   const [educationInfo, setEducationInfo] = useState(data.educationInfo);
+  const [experienceInfo, setExperienceInfo] = useState(data.experienceInfo);
   const [numOfDegrees, setNumOfDegrees] = useState(0);
   const [userImg, newUserImg] = useState("src/assets/img/profile-img-placeholder.jpg");
 
@@ -20,6 +23,7 @@ function App() {
   }
   function handleInputChange(objectName, event){
     const parentId = event.target.parentNode.getAttribute("id");
+    console.log(parentId)
     const {name, value} = event.target;
     switch (objectName) {
     case "personalInfo":
@@ -27,6 +31,16 @@ function App() {
       break;
     case "educationInfo":
       setEducationInfo(prev => {
+        return prev.map((item) => {
+          if(item.id === parentId){
+            return { ...item, [name]: value }
+          }
+          return item;
+        });
+      });
+      break;
+    case "experienceInfo":
+      setExperienceInfo(prev => {
         return prev.map((item) => {
           if(item.id === parentId){
             return { ...item, [name]: value }
@@ -55,21 +69,50 @@ function App() {
         });
       });
       break;
+    case "experienceInfo":
+      setExperienceInfo(prev => {
+        return prev.map((item) => {
+          if(item.id === parentId){
+            return { ...item, [name]: value }
+          }
+          return item;
+        });
+      });
+      break;
     default:
       break;
     }
   }
-  function DegreeShowToggle(parentId){
+  function ToggleShow(objectName, parentId){
     event.preventDefault();
-    setEducationInfo(prev => {
-      return prev.map(item => {
-        if(item.id === parentId){
-          return {...item, show: !item.show};
-        }
-        return item;
+    switch(objectName){
+    case "educationInfo": 
+      setEducationInfo(prev => {
+        return prev.map(item => {
+          if(item.id === parentId){
+            return {...item, show: !item.show};
+          }
+          return item;
+        })
       })
-    })
+      break;
+    case "experienceInfo":
+      setExperienceInfo(prev => {
+        return prev.map(item => {
+          if(item.id === parentId){
+            return {...item, show: !item.show};
+          }
+          return item;
+        })
+      })
+      break;
+    default:
+      break;
+    }
+
   }
+
+  // ====================[DEGREE METHODS]====================
   function addNewDegree(){
     const newEducationInfo = [...educationInfo];
     const newDegree = {
@@ -86,16 +129,16 @@ function App() {
   }
   function removeDegree(parentId){
     event.preventDefault();
-    for(let i = 0; i <= educationInfo.length; i++){
+    for(let i = 0; i < educationInfo.length; i++){
       if(educationInfo[i].id === parentId){
         const newEducationInfo = [...educationInfo];
-        newEducationInfo.splice(i,1);
+        newEducationInfo.splice(i, 1);
         setEducationInfo(newEducationInfo)
       }
     }
   }
   function clearDegree(parentId){
-    for(let i = 0; i <= educationInfo.length; i++){
+    for(let i = 0; i < educationInfo.length; i++){
       if(educationInfo[i].id === parentId){
         const newEducationInfo = [...educationInfo];
         const traverse = ["degree","location","startDate","endDate"];
@@ -109,6 +152,54 @@ function App() {
       }
     }
   }
+  // ====================[\DEGREE METHODS]====================
+
+  // ====================[EXPERIENCE METHODS]====================
+  function addNewExperience(){
+    const newExperienceInfo = [...experienceInfo];
+    const newExperience = {
+      id: uuid(),
+      company: "New Company",
+      position: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+      description: "",
+      show: true,
+    }
+    newExperienceInfo.push(newExperience);
+    setExperienceInfo(newExperienceInfo);
+  }
+
+  function removeExperience(parentId){
+    event.preventDefault();
+    for(let i = 0; i < experienceInfo.length; i++){
+      if(experienceInfo[i].id === parentId){
+        const newExperienceInfo = [...experienceInfo];
+        newExperienceInfo.splice(i, 1);
+        setExperienceInfo(newExperienceInfo)
+      }
+    }
+  }
+
+  function clearExperience(parentId){
+
+    for(let i = 0; i < experienceInfo.length; i++){
+      if(experienceInfo[i].id === parentId){
+        const newExperienceInfo = [...experienceInfo];
+        const traverse = ["company","position","startDate","endDate","location","description"];
+        traverse.forEach(attribute => {
+          `${newExperienceInfo[i][attribute]= ""}`
+        });
+        newExperienceInfo[i].show = true;
+        newExperienceInfo[i].company = "Enter Company name";
+
+        setExperienceInfo(newExperienceInfo)
+      }
+    }
+  }
+  // ====================[\EXPERIENCE METHODS]====================
+
 
   function handleImageUpload(){
     const image = document.getElementById("upload").files[0];
@@ -122,7 +213,7 @@ function App() {
   return (
     <div id="page-content-container">
   
-      <section>
+      <section id="control-section">
         <ContentControls onClick={handleDisplayOptions} active={displayOption}/>
         {displayOption === "input" && (
           <>
@@ -136,19 +227,35 @@ function App() {
               educationInfo = {educationInfo}
               onChange={(e) => handleInputChange("educationInfo", e)}
               onDateChange={(name, date, event) => handleDateChange("educationInfo", name, date, event)}
-              degreeShowToggle={DegreeShowToggle}
+              degreeShowToggle={(parentId) => {ToggleShow("educationInfo", parentId)}}
               removeDegree={removeDegree}
               addNewDegree={addNewDegree}
               clearDegree={clearDegree}
             />
+
+            <Experience
+              experienceInfo = {experienceInfo}
+              onChange={(e) => handleInputChange("experienceInfo", e)}
+              onDateChange={(name, date, event) => handleDateChange("experienceInfo", name, date, event)}
+              showToggle={(parentId) => {ToggleShow("experienceInfo", parentId)}}
+              removeExperience={removeExperience}
+              addNewExperience={addNewExperience}
+              clearExperience={clearExperience}
+            />
+          </>
+        )}
+        {displayOption === "layout" && (
+          <>
+            <Layout onChange={(e) => handleInputChange("experienceInfo", e)}/>
           </>
         )}
       </section>
-      <section>
+      <section id="display-section">
         <DisplayCV
           personalInfo = {personalInfo}
           userImg = {userImg}
           educationInfo = {educationInfo}
+          experienceInfo={experienceInfo}
         />
       </section>
     </div>

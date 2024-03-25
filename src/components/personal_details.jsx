@@ -10,7 +10,7 @@ function PersonalDetails({personalInfo, onChange, handleUserImg}) {
     show === true ? setShow(false) : setShow(true);
   }
   function Button({onClick}){
-    return <button id="input-img" onClick={onClick}><h1>Personal Details</h1></button>
+    return <button className="section-btn" onClick={onClick}><h1>Personal Details</h1></button>
   }
   function InputUserImage({handleUserImg}){
     return <>
