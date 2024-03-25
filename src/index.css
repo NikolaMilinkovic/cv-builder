@@ -376,8 +376,10 @@ template {
 input{
   padding: 6px;
 }
-
-
+#cv-display-container{
+  display: flex;
+  flex-direction: column;
+}
 
 
 

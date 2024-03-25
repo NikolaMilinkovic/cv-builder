@@ -1,0 +1,35 @@
+@import url('../index.css');
+
+#education-container{
+    display: flex;
+    flex-direction: column;
+}
+#education-container div:not(:first-child){
+    display: flex;
+    flex-direction: column;
+}
+#education-container > label {
+    margin-top: 1rem;
+}
+#cv-education-container{
+    display: flex;
+    flex-direction: column;
+}
+.degree-show-hide-btn{
+    font-size: 10px;
+    color: white;
+}
+.btn-degree-show-toggle{
+    font-size: 18px;
+    padding: 18px;
+}
+.degree-control-buttons{
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    box-sizing: border-box;
+}
+.degree-control-buttons > button {
+    padding: 12px;
+    margin: 0.5rem;
+
+}
