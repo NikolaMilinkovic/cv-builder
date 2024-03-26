@@ -19,7 +19,7 @@ function DisplayCV({personalInfo, userImg, educationInfo, experienceInfo}) {
             <div id="cv-header-contact-container">
               <div className="icon-text-display">
                 <Icon
-                  path="src/assets/img/icons/dark-theme/envelope-dark.svg"
+                  path="/assets/img/icons/dark-theme/envelope-dark.svg"
                   alt="Email icon"
                   className={"icon-container"}
                 /> 
@@ -27,7 +27,7 @@ function DisplayCV({personalInfo, userImg, educationInfo, experienceInfo}) {
               </div>
               <div className="icon-text-display">
                 <Icon
-                  path="src/assets/img/icons/dark-theme/phone-dark.svg"
+                  path="/assets/img/icons/dark-theme/phone-dark.svg"
                   alt="Phone icon"
                   className={"icon-container"}
                 /> 
@@ -35,7 +35,7 @@ function DisplayCV({personalInfo, userImg, educationInfo, experienceInfo}) {
               </div>
               <div className="icon-text-display">
                 <Icon
-                  path="src/assets/img/icons/dark-theme/address-dark.svg"
+                  path="/assets/img/dark-theme/address-dark.svg"
                   alt="Address icon"
                   className={"icon-container"}
                 /> 
@@ -50,7 +50,7 @@ function DisplayCV({personalInfo, userImg, educationInfo, experienceInfo}) {
           <div id="cv-education-container">
             <div className="icon-header-display">
               <Icon
-                path="src/assets/img/icons/dark-theme/graduate-dark.svg"
+                path="/assets/img/icons/dark-theme/graduate-dark.svg"
                 alt="Education icon"
                 className={"icon-container-reverse"}
               /> 
@@ -78,7 +78,7 @@ function DisplayCV({personalInfo, userImg, educationInfo, experienceInfo}) {
           <div id="cv-experience-container">
             <div className="icon-header-display">
               <Icon
-                path="src/assets/img/icons/dark-theme/briefcase-dark.svg"
+                path="/assets/img/icons/dark-theme/briefcase-dark.svg"
                 alt="Education icon"
                 className={"icon-container-reverse"}
               /> 
