@@ -6,6 +6,7 @@
     text-align: center;
     align-items: center;
     justify-content: center;
+    flex-direction: var(--header-container-direction);
 }
 #img-name-container{
     display: flex;
@@ -15,11 +16,12 @@
     padding: 1rem;
     background-color: var(--highlight-color);
     text-align: center;
-    margin: auto;
+    /* top right bottom left */
+    margin: var(--img-name-margins);
 }
 #cv-header-contact-container{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: var(--header-contact-columns);
 }
 #image-container{
     display: flex;
@@ -31,6 +33,7 @@
     justify-content: center;
 }
 #image-container img {
+    margin-top: var(--img-margin-top);
     width: 100%;
     height: auto;
     display: block;

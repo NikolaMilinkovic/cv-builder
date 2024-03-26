@@ -17,6 +17,7 @@ function App() {
   const [numOfDegrees, setNumOfDegrees] = useState(0);
   const [userImg, newUserImg] = useState("src/assets/img/profile-img-placeholder.jpg");
 
+
   // State handling methods
   function handleDisplayOptions(event){
     setDisplayOption(event.target.name);
@@ -246,7 +247,9 @@ function App() {
         )}
         {displayOption === "layout" && (
           <>
-            <Layout onChange={(e) => handleInputChange("experienceInfo", e)}/>
+            <Layout 
+              onChange={(e) => handleInputChange("experienceInfo", e)}
+            />
           </>
         )}
       </section>

@@ -2,7 +2,7 @@ import { useState } from "react"
 import classNames from "classnames";
 import "../styles/layout_selectors.css";
 
-function ContentControls({onClick, active,onClickClear}) {
+function ContentControls({onClick, active, onClickClear}) {
 
   function ControlButton({onClick, text, name, onClickClear}){
     const btnClass = classNames("option-btn", { "active": active === name});

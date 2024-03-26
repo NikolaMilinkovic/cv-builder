@@ -45,7 +45,7 @@ function Experience({
               <ButtonNormal
                 btnText={obj.company}
                 onClick={() => {showToggle(obj.id)}}
-                className="btn-degree-show-toggle"
+                className={`btn-degree-show-toggle ${obj.show ? "btn-active" : ""}`}
                 id="btn-experience-show-toggle"
               />
               <div 
@@ -129,7 +129,7 @@ function Experience({
                       id="input-job-description"
                       placeholder="Input Job Description"
                       ariaLabel="Job Description"
-                      value={obj.location}
+                      value={obj.description}
                       onChange={onChange}
                     />
 
