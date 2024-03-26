@@ -35,7 +35,7 @@ function DisplayCV({personalInfo, userImg, educationInfo, experienceInfo}) {
               </div>
               <div className="icon-text-display">
                 <Icon
-                  path="img/dark-theme/address-dark.svg"
+                  path="img/icons/dark-theme/address-dark.svg"
                   alt="Address icon"
                   className={"icon-container"}
                 /> 

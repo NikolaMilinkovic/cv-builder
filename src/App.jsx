@@ -15,7 +15,7 @@ function App() {
   const [educationInfo, setEducationInfo] = useState(data.educationInfo);
   const [experienceInfo, setExperienceInfo] = useState(data.experienceInfo);
   const [numOfDegrees, setNumOfDegrees] = useState(0);
-  const [userImg, newUserImg] = useState("src/assets/img/profile-img-placeholder.jpg");
+  const [userImg, newUserImg] = useState("/img/profile-img-placeholder.jpg");
 
 
   // State handling methods
