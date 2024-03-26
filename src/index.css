@@ -351,13 +351,11 @@ template {
 /* ########## End of normalization file ########## */
 
 :root {
-
-  
   line-height: 1.5;
   font-weight: 400;
+  background-color: #F3F4F6;
 
   color-scheme: light dark;
-  /* background-color: #242424; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -539,6 +537,7 @@ button:has(.right-visual){
 }
 .border-right{
   border-right: 2px solid lightgray;
+  padding-right: 1rem;
 }
 h2,H3{
   margin: 0rem;
@@ -601,7 +600,8 @@ button:not([class="section-btn"]){
   gap: 2rem;
 }
 #control-section{
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   padding: 5%;
   box-sizing: border-box;
 }
@@ -662,10 +662,15 @@ label{
 
 
 
-@media (prefers-color-scheme: dark) {
+
+
+
+
+/* LIGHT THEME AND NO PREFERENCE COLOR THEME*/
+@media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
   :root {
+    background-color: #F3F4F6;
     color: var(--font-color);
-    background-color: var(--background-color);
     font-size: var(--font-size);
   }
   a:hover {
@@ -724,15 +729,96 @@ label{
   }
 }
 
-/* @media (prefers-color-scheme: dark) {
+
+/* DARK THEME */
+@media (prefers-color-scheme: dark) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    --highlight-color: #1B976B;
+    color: var(--font-color);
+    font-size: var(--font-size);
+    background-color: #333333;
+  }
+  .education-input-section-display,
+  .experience-input-section-display{
+    background-color: #202124;
+  }
+  .btn-layout{
+    color: white;
+  }
+  h1{
+    color: white;
+  }
+  .cv-header{
+    color: black;
   }
   a:hover {
     color: #747bff;
   }
-  button {
-    background-color: #f9f9f9;
+  .active{
+    background-color: var(--highlight-color);
+    color: var(--header-color);
   }
-} */
+  button{
+    background-color: var(--highlight-color);
+    color: white;
+  }
+  .btn-active{
+    background-color: var(--highlight-color);
+    color: var(--header-color);
+  }
+  button:not(.section-btn):not(.active):hover:not(.btn-active):hover:not(.remove-btn):hover:not(.add-new-btn):hover {
+    margin: 5px 20px;
+    background-color: #c9d7e3;
+  }
+  .section-btn{
+    background-color: var(--highlight-color);
+    color: var(--header-color);
+  }
+  #display-section{
+    background-color: #333333;
+  }
+  #cv-display-wrapper{
+    background-color: var(--background-color);
+  }
+  .cv-education-section,
+  .cv-experience-section{
+    border-bottom: 2px solid lightgray;
+  }
+  #control-section{
+    background-color: #202124;
+  }
+  input{
+    background-color: #333333 !important;
+    color: lightgray;
+    border-bottom: 2px solid #333333;
+  }
+  input:focus {
+    outline: none; /* Remove default outline */
+    background-color: #F3F4F6;
+    box-shadow: 0 0 8px rgba(176, 176, 176, 0.1);
+    border: 2px solid gray;
+  }
+  label{
+    color: lightgray;
+  }
+  #cv-header-container{
+    color: var(--header-color);
+    flex-direction: var(--header-container-direction);
+  }
+  .add-new-btn{
+    padding: 10px;
+    background-color: var(--highlight-color);
+  }
+  .color-picker-wheel{
+    background-color: var(--highlight-color) !important;
+  }
+  .remove-btn{
+    background-color: #fe7f7f;
+  }
+  .remove-btn:hover{
+    background-color: #ff4848;
+  }
+  .picker-wrapper > label {
+    color: white;
+  }
+}

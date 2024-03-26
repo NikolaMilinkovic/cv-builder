@@ -54,7 +54,7 @@ function DisplayCV({personalInfo, userImg, educationInfo, experienceInfo}) {
                 alt="Education icon"
                 className={"icon-container-reverse"}
               /> 
-              <h1>Education</h1>
+              <h1 className="cv-header">Education</h1>
             </div>
             {educationInfo.map(obj => (
               <div key={obj.id} className="cv-education-section">
@@ -82,7 +82,7 @@ function DisplayCV({personalInfo, userImg, educationInfo, experienceInfo}) {
                 alt="Education icon"
                 className={"icon-container-reverse"}
               /> 
-              <h1>Experience</h1>
+              <h1 className="cv-header">Experience</h1>
             </div>
             {experienceInfo.map(obj => (
               <div key={obj.id} className="cv-experience-section">
