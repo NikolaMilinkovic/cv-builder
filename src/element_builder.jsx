@@ -8,6 +8,7 @@ export function Button({htmlFor="", labelText = "", name="", id="", onClick, btn
         id={id} 
         onChange={onClick}
         className={classList}
+
       >
         {btnText}
       </button>
