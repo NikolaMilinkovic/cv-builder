@@ -14,4 +14,4 @@ Online Curriculum Vitae builder in React!<br>
 - Download CV Button (Which is like the most important thing missing)
 
 ## 💻 Built With
-![javascript](https://skillicons.dev/icons?i=react,js,css&perline=10)
+![javascript](https://skillicons.dev/icons?i=react,js,html,css&perline=10)
